@@ -37,17 +37,16 @@ var content_map1 = ["homebtn", "qlbtn"];
 
 window.onload = function() {
 
-    reset();
     slide = document.getElementById("eslide");
     epslide = document.getElementById("epslide");
     dcslide = document.getElementById("decayslide");
 
     value_text = document.getElementById("numsteps");
-    value_text.innerText = "Number of steps: " + slide.value;
+    value_text.innerText = "Number of Episodes for the run: " + slide.value;
     numsteps = parseInt(slide.value);
 
     ep_text = document.getElementById("epval");
-    ep_text.innerText = "Epsilon value: "+epslide.value;
+    ep_text.innerText = "Epsilon value: " + epslide.value;
     epsilon = parseFloat(epslide.value);
 
     dc_text = document.getElementById("decayval");
@@ -55,7 +54,7 @@ window.onload = function() {
     decay_rate = parseFloat(dcslide.value);
 
     slide.oninput = function() {
-        value_text.innerText = "Number of steps: " + slide.value;
+        value_text.innerText = "Number of Episodes for the run: " + slide.value;
         numsteps = parseInt(this.value);
     }
 
@@ -68,6 +67,7 @@ window.onload = function() {
         dc_text.innerText = "Epsilon Decay Rate per 10 episodes: " + dcslide.value;
         decay_rate = parseFloat(dcslide.value);
     }
+    reset();
 }
 
 function reset() {
@@ -89,6 +89,23 @@ function reset() {
         }
         cell.style.setProperty("background-color", "white");
     }
+
+    document.getElementById("eslide").value = "1";
+    document.getElementById("numsteps").innerText = "Number of Episodes in the run : 1";
+    numsteps = 1;
+    
+    document.getElementById("epslide").value = "0.5";
+    document.getElementById("epval").innerText = "Epsilon value: 0.5";
+    epsilon = 0.5;
+
+    document.getElementById("decayslide").value = "0.30";
+    document.getElementById("decayval").innerText = "Epsilon Decay Rate per 10 episodes: 0.30";
+    decay_rate = 0.30;
+
+    document.getElementById("episodes").innerText = "Episodes done: 0";
+    e = 0;
+
+
 }
 
 function bounceBack(curr_pos, next_pos) {
@@ -134,7 +151,7 @@ async function run_episodes() {
         sleep_val = 20;
     }
     else if(numsteps > 20) {
-        sleep_val = 1;
+        sleep_val = 10;
     }
     else {
         sleep_val = 300;
@@ -145,7 +162,7 @@ async function run_episodes() {
         var cells = container.getElementsByClassName("cell");
         if(e % 10 == 0) epsilon = epsilon*decay_rate;
         var done = false;
-        console.log("here");
+        //console.log("here");
         while(!done) {
             valid = false;
             while(!valid) {
@@ -157,10 +174,10 @@ async function run_episodes() {
             if(cells[next_pos].innerText == "H") {
                 cells[curr_pos].style.setProperty("background-color", "white");
                 cells[next_pos].style.setProperty("background-color", "red");
-                console.log("Fell at: " + next_pos);
+                //console.log("Fell at: " + next_pos);
                 curr_pos = 0;
                 done = true;
-                console.log("Reward: " + rwd);
+                //console.log("Reward: " + rwd);
                 rwd = 0;
                 await sleep(sleep_val);
                 clearLake();
@@ -168,20 +185,20 @@ async function run_episodes() {
             else if (container.getElementsByClassName("cell")[next_pos].innerText == "G") {
                 cells[curr_pos].style.setProperty("background-color", "white");
                 cells[next_pos].style.setProperty("background-color", "green");
-                console.log("Goal reached");
+                //console.log("Goal reached");
                 done=true;
                 rwd++;
                 qtab[curr_pos][act] = qtab[curr_pos][act] + lr*(1 + gamma*Math.max(...qtab[next_pos]) - qtab[curr_pos][act]);
                 var cell = cells[curr_pos].innerText;
                 cells[curr_pos].innerText = cell[0] + "\n" + Math.max(...qtab[curr_pos]).toFixed(2) + "\n" + action_map1[qtab[curr_pos].indexOf(Math.max(...qtab[curr_pos]))];
                 rwd = 0;
-                console.log("Value upd to: "+qtab[curr_pos][act]);
+                //console.log("Value upd to: "+qtab[curr_pos][act]);
                 curr_pos=0;
                 await sleep(sleep_val);
                 clearLake();
             }
             else {
-                console.log("Step to: " + next_pos);
+                //console.log("Step to: " + next_pos);
                 cells[next_pos].style.setProperty("background-color", "lightblue");
                 cells[curr_pos].style.setProperty("background-color", "white");
                 qtab[curr_pos][act] = qtab[curr_pos][act] + lr*(gamma*Math.max(...qtab[next_pos]) - qtab[curr_pos][act]);
