@@ -121,7 +121,7 @@ function bounceBack(curr_pos, next_pos) {
 }
 
 function getAct(obs) {
-    if(Math.random() < epsilon) {
+    if(Math.random().toFixed(4) < epsilon) {
         return Math.floor(Math.random()*obs.length);
     }
     else {
@@ -144,6 +144,9 @@ function clearLake() {
 
 
 async function run_episodes() {
+    var container = document.getElementById("lake");
+    var cells = container.getElementsByClassName("cell");
+    var episodes_text = document.getElementById("episodes");
     if (numsteps > 5) {
         sleep_val = 50;
     }
@@ -158,9 +161,7 @@ async function run_episodes() {
     }
     for(k=0; k<numsteps; k++){
         rwd=0;
-        var container = document.getElementById("lake");
-        var cells = container.getElementsByClassName("cell");
-        if(e % 10 == 0) epsilon = epsilon*decay_rate;
+        if(e % 10 == 0) epsilon = (epsilon - decay_rate).toFixed(4);
         var done = false;
         //console.log("here");
         while(!done) {
@@ -209,7 +210,7 @@ async function run_episodes() {
             await sleep(sleep_val);
         }
         e++;
-        document.getElementById("episodes").innerText = "Episodes done: "+e;
+        episodes_text.innerText = "Episodes done: "+e;
     }
 }
 
