@@ -1,0 +1,81 @@
+:root{
+    --cell-size: 100px;
+}
+
+.grid {
+    width: 70vm;
+    height: 45vh;
+    display: grid;
+    justify-content: right;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(4, auto);
+}
+
+.cell {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: white;
+    border: 1px solid black;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.slider {
+    width: 200px;
+}
+
+.topnav {
+    padding: 15px 15px;
+    background-color: #d6b951;
+    overflow: hidden;
+    align-items: center;
+}
+
+.topnav a {
+    float:left;
+    color: white;
+    padding: 15px 15px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: bolder;
+}
+
+.topnav .logo {
+    font-size: 32px;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    pointer-events: none;
+}
+
+
+.topnav a.active {
+    background-color: white;
+    color: black;
+}
+
+.topnav a:hover {
+    color: black;
+    background-color: whitesmoke;
+}
+
+.container {
+    padding-top: 15px;
+    width: 95%;
+}
+
+.container .jumbotron {
+    color: black;
+}
+
+.container .slidecontainer {
+    margin-left: 0%;
+}
+
+.container .slidecontainer .slider {
+    width: 50%;
+}

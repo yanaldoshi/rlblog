@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
+    <title>Test</title>
+</head>
+
+<body style="background-color: #e3c9a1; color: white;">
+    <div class="topnav">
+        <a class="logo">Team Asimov</a>
+        <a  href="#home" onclick=displayContent(0) id="homebtn">Home</a>
+        <a  href="#Qlearning" onclick=displayContent(1) id="qlbtn">Q-Learning</a>
+    </div>
+
+    <div class="container" id="home">
+        <div class="jumbotron">
+            <h1 style="font-weight: bold;">Reinforcement Learning</h1>
+            <p>Reinforcement Learning deals with ashdkashdsa</p>
+        </div>
+    </div>
+
+    <div class="container" id="qlearning" style="display:none;">
+        <div class="jumbotron">
+            <h1 style="font-weight: bold;">Q-Learning</h1>
+            <p>Q-Learning is a value based RL technique. In this method
+                we build a Q-Table, which is a state-action action, with states
+                in state space as rows and actions in action space as columns.
+            </p>
+            <p>Here is an Interactive Visualization of Q-Learning in a Frozen Lake Environment</p>
+            <hr>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="grid" id="lake">
+                        <div class="cell" id = "1"></div>
+                        <div class="cell" id = "2"></div>
+                        <div class="cell" id = "3"></div>
+                        <div class="cell" id = "4"></div>
+                        <div class="cell" id = "5"></div>
+                        <div class="cell" id = "6"></div>
+                        <div class="cell" id = "7"></div>
+                        <div class="cell" id = "8"></div>
+                        <div class="cell" id = "9"></div>
+                        <div class="cell" id = "10"></div>
+                        <div class="cell" id = "11"></div>
+                        <div class="cell" id = "12"></div>
+                        <div class="cell" id = "13"></div>
+                        <div class="cell" id = "14"></div>
+                        <div class="cell" id = "15"></div>
+                        <div class="cell" id = "16"></div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="slidecontainer">
+                        <p id="numsteps">Number of steps: 1</p>
+                        <input type="range" min="1" max="100" value="1" class="slider" id="eslide">
+                    </div>  
+                    <br>
+                    <div class="slidecontainer">
+                        <p id="epval">Epsilon val: 0.5</p>
+                        <input type="range" min="0.0" max="1.0" value="0.5" step="0.1" class="slider" id="epslide">
+                    </div>
+                    <br>
+                    <div class="slidecontainer">
+                        <p id="decayval">Epsilon Decay Rate per 10 episodes: 0.5</p>
+                        <input type="range" min="0.0" max="1.0" value="0.30" step="0.01" class="slider" id="decayslide">
+                    </div>
+                    <br>
+                    <p id="episodes" style="padding-top: 2%;">
+                        Episodes done: 0
+                    </p>
+                </div>
+            </div>
+            
+            <center>
+                <div class="row" style="display: flex; justify-content: center;">
+                    <div class="col-lg-2">
+                        <button class="btn-primary btn-lg" onclick="reset()">RESET</button>
+                    </div>
+                    <div class="col-lg-2">
+                        <button class="btn-primary btn-lg" onclick="run_episodes()">RUN</button>
+                    </div> 
+                </div>
+            </center>      
+        </div>
+    </div>
+
+</body>
+</html>

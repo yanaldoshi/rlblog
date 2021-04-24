@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello world</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body style="background-color: #e3c9a1;">
+    <div class="topnav">
+        <a  href="#yo" onclick=displayContent(0)>Yo</a>
+        <a  href="#hey" onclick=displayContent(1)>Hey</a>
+        <a class="active" href="homepage.html">Home</a>
+    </div>
+    <p>
+        <button class="btn-default"  onclick="reset()">RESET</button>
+    </p>
+    <p>
+        <button class="btn-default" onclick="step()">STEP</button>
+    </p>
+    <div class="slidecontainer">
+        <input type="range" min="1" max="50" value="1" class="slider" id="slide">
+        <p id="numsteps">Number of steps: 1</p>
+    </div>
+    <div class="epsiloncontainer">
+        <input type="range" min="0.0" max="1.0" value="0.5" step="0.1" class="slider" id="epslide">
+        <p id="epval">Ep val: 0.5</p>
+    </div>
+    <p id="episodes">
+        Episodes done: 0
+    </p>
+    <div class="grid" id="lake">
+        <div class="cell" id = "1"></div>
+        <div class="cell" id = "2"></div>
+        <div class="cell" id = "3"></div>
+        <div class="cell" id = "4"></div>
+        <div class="cell" id = "5"></div>
+        <div class="cell" id = "6"></div>
+        <div class="cell" id = "7"></div>
+        <div class="cell" id = "8"></div>
+        <div class="cell" id = "9"></div>
+        <div class="cell" id = "10"></div>
+        <div class="cell" id = "11"></div>
+        <div class="cell" id = "12"></div>
+        <div class="cell" id = "13"></div>
+        <div class="cell" id = "14"></div>
+        <div class="cell" id = "15"></div>
+        <div class="cell" id = "16"></div>
+    </div>
+</body>
+</html>
