@@ -60,12 +60,12 @@ window.onload = function() {
 
     epslide.oninput = function() {
         ep_text.innerText = "Epsilon value: "+epslide.value;
-        epsilon = parseFloat(epslide.value);
+        epsilon = parseFloat(this.value);
     }
 
     dcslide.oninput = function() {
         dc_text.innerText = "Epsilon Decay Rate per 10 episodes: " + dcslide.value;
-        decay_rate = parseFloat(dcslide.value);
+        decay_rate = parseFloat(this.value);
     }
     reset();
 }
