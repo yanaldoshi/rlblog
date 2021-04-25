@@ -7,7 +7,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="script.js"></script>
-    <title>Test</title>
+    <title>RL Blog</title>
 </head>
 
 <body style="background-color: #e3c9a1; color: white;">
@@ -20,7 +20,27 @@
     <div class="container" id="home">
         <div class="jumbotron">
             <h1 style="font-weight: bold;">Reinforcement Learning</h1>
-            <p>Reinforcement Learning deals with ashdkashdsa</p>
+            <p>Reinforcement learning is an area of machine learning concerned
+             with how intelligent agents ought to take actions in an environment 
+             in order to maximize the notion of cumulative reward.</p>
+            <center>
+            <img src="rlblock.png" alt="RL Block Diagram">
+            </center>
+            <p>The agent in the given environment needs to use the reward given by 
+                the environment to improve its decision-making process. We have two main 
+            approaches to RL algorithms, </p>
+            <ol style="font-size: 20px;">
+                <li>
+                    <u>Value Based</u>: In this approach, an agent computes/approximates a 
+                    value(a guess of how good a state is) for its state-action pairs. 
+                    These values will be used to determine the optimal policy.
+                </li>
+                <li>
+                    <u>Policy Based</u>: Here, the agent doesn’t compute explicit values 
+                    and uses policy iteration methods to find the optimal policy. 
+                </li>
+            </ol>
+            
         </div>
     </div>
 
@@ -31,7 +51,60 @@
                 we build a Q-Table, which is a state-action action, with states
                 in state space as rows and actions in action space as columns.
             </p>
+            <center>
+                <style type="text/css">
+                    .tg  {border-collapse:collapse;border-color:#aaa;border-spacing:0;}
+                    .tg td{background-color:#fff;border-color:#aaa;border-style:solid;border-width:1px;color:#333;
+                    font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+                    .tg th{background-color:#f38630;border-color:#aaa;border-style:solid;border-width:1px;color:#fff;
+                    font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+                    .tg .tg-pjk6{border-color:#000000;color:#000000;text-align:left;vertical-align:top}
+                    </style>
+                    <table class="tg">
+                    <thead>
+                    <tr>
+                        <th class="tg-pjk6">State\Action</th>
+                        <th class="tg-pjk6">Action1</th>
+                        <th class="tg-pjk6">Action2</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="tg-pjk6">Sate1</td>
+                        <td class="tg-pjk6">Q1</td>
+                        <td class="tg-pjk6">Q2</td>
+                    </tr>
+                    <tr>
+                        <td class="tg-pjk6">State2</td>
+                        <td class="tg-pjk6">Q3</td>
+                        <td class="tg-pjk6">Q4<br></td>
+                    </tr>
+                    <tr>
+                        <td class="tg-pjk6">State3</td>
+                        <td class="tg-pjk6">Q5<br></td>
+                        <td class="tg-pjk6">Q6</td>
+                    </tr>
+                    </tbody>
+                    </table>
+            </center>
+            <br>
+            <p>The agent updates the Q-Table using the following equation,</p>
+            <center><img src="qformula.png" alt="Bellman Equation"></center>
+            <p>Where, 
+                <ol style="font-size: 20px;">
+                    <li>S<sub>t</sub>: State of the agent at time t</li>
+                    <li>S<sub>t+1</sub>: State of the agent at time t+1</li>
+                    <li>A<sub>i</sub>: Action chosen by the agent </li>
+                    <li>R<sub>t</sub>: The reward given by the environment on taking action Ai on state St</li>
+                    <li>&Gamma;: Discount Factor (Hyperparameter)</li>
+                    <li>&alpha;: Learning Rate (Hyperparameter)</li>
+                </ol>
+            </p>
             <p>Here is an Interactive Visualization of Q-Learning in a Frozen Lake Environment</p>
+            <p>In the Frozen Lake problem, the agent needs to travel from Start point (S) to the Goal (G)</p>
+            <p>The agent can safely walk on Frozen parts of the lake marked by (F)</p>
+            <p>If the agent falls into a hole marked by (H) then the game ends</p>
+            <p>Agent receives 1 Reward when it reaches Goal</p>
             <hr>
             
             <div class="row">
