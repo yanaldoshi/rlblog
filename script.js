@@ -98,9 +98,9 @@ function reset() {
     document.getElementById("epval").innerText = "Epsilon value: 1.0";
     epsilon = 1.0;
 
-    document.getElementById("decayslide").value = "0.10";
-    document.getElementById("decayval").innerText = "Epsilon Decay Rate per 10 episodes: 0.10";
-    decay_rate = 0.10;
+    document.getElementById("decayslide").value = "0.01";
+    document.getElementById("decayval").innerText = "Epsilon Decay Rate per 10 episodes: 0.01";
+    decay_rate = 0.01;
 
     document.getElementById("episodes").innerText = "Episodes done: 0";
     e = 0;
