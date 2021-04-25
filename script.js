@@ -91,15 +91,15 @@ function reset() {
     }
 
     document.getElementById("eslide").value = "500";
-    document.getElementById("numsteps").innerText = "Number of Episodes in the run : 1";
+    document.getElementById("numsteps").innerText = "Number of Episodes in the run : 500";
     numsteps = 500;
     
     document.getElementById("epslide").value = "1.0";
-    document.getElementById("epval").innerText = "Epsilon value: 0.5";
+    document.getElementById("epval").innerText = "Epsilon value: 1.0";
     epsilon = 1.0;
 
     document.getElementById("decayslide").value = "0.10";
-    document.getElementById("decayval").innerText = "Epsilon Decay Rate per 10 episodes: 0.30";
+    document.getElementById("decayval").innerText = "Epsilon Decay Rate per 10 episodes: 0.10";
     decay_rate = 0.10;
 
     document.getElementById("episodes").innerText = "Episodes done: 0";
